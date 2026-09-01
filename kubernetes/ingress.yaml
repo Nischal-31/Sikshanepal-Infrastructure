@@ -1,0 +1,43 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+
+metadata:
+  name: sikshanepal-ingress
+  namespace: sikshanepal
+
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+
+spec:
+  ingressClassName: nginx
+
+  tls:
+    - hosts:
+        - sikshanepal.com
+        - www.sikshanepal.com
+      secretName: sikshanepal-tls
+
+  rules:
+
+    - host: sikshanepal.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sikshanepal-service
+                port:
+                  number: 80
+
+    - host: www.sikshanepal.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sikshanepal-service
+                port:
+                  number: 80

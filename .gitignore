@@ -1,0 +1,32 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# Terraform variables
+terraform.tfvars
+
+# SSH private keys
+*.pem
+*.key
+
+# Kubernetes secret templates
+kubernetes/*secret.yaml
+kubernetes/*secret.yml
+
+# Environment files
+.env
+*.env
+
+Cred.txt
+deploy.sh
+
+certs/*.key
+certs/*.crt
+certs/*.ca-bundle
+certs/*.p7b
+
+# Kubernetes secrets
+kubernetes/django-secret-example.yaml
+kubernetes/postgres-secret-example.yaml

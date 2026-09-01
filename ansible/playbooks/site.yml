@@ -1,0 +1,10 @@
+---
+- name: Configure Sikshanepal server
+  hosts: kubernetes
+  become: true
+
+  roles:
+    - common
+    - docker
+    - containerd
+    - kubernetes
